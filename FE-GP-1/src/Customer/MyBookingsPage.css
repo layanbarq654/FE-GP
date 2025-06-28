@@ -1,0 +1,263 @@
+.bookings-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  
+  .bookings-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+  }
+  
+  .page-title {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111827;
+    margin: 0;
+  }
+  
+  .back-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 8px;
+    transition: background 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4F46E5;
+    font-weight: 500;
+  }
+  
+  .back-button:hover {
+    background: rgba(79, 70, 229, 0.1);
+  }
+  
+  .bookings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .booking-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .booking-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .hall-name {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+    color: #111827;
+  }
+  
+  .booking-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .booking-date {
+    font-size: 14px;
+    color: #6B7280;
+  }
+  
+  .status-badge {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+  
+  .status-badge.approved {
+    background: #ECFDF5;
+    color: #10B981;
+  }
+  
+  .status-badge.waiting {
+    background: #FEF3C7;
+    color: #F59E0B;
+  }
+  
+  .status-badge.rejected {
+    background: #FEE2E2;
+    color: #DC2626;
+  }
+  
+  .booking-details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .time-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .time-range {
+    font-size: 15px;
+    color: #4B5563;
+  }
+  
+  .total-price {
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .companies-section {
+    border-top: 1px solid #E5E7EB;
+    padding-top: 16px;
+  }
+  
+  .companies-section h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 12px 0;
+    color: #4B5563;
+  }
+  
+  .companies-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .company-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #F9FAFB;
+    border-radius: 8px;
+  }
+  
+  .company-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .company-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+  }
+  
+  .company-category {
+    font-size: 12px;
+    color: #6B7280;
+  }
+  
+  .company-time-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+  
+  .company-time {
+    font-size: 13px;
+    color: #6B7280;
+  }
+  
+  .company-price {
+    font-size: 14px;
+    font-weight: 500;
+    color: #111827;
+  }
+  
+  .no-bookings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 40px;
+    text-align: center;
+    color: #6B7280;
+  }
+  
+  .no-bookings p {
+    font-size: 16px;
+    margin: 0;
+  }
+  
+  .primary-button {
+    background: #4F46E5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .primary-button:hover {
+    background: #4338CA;
+  }
+  
+  .loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    gap: 16px;
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(79, 70, 229, 0.1);
+    border-radius: 50%;
+    border-top-color: #4F46E5;
+    animation: spin 1s linear infinite;
+  }
+  
+  .error-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 40px;
+    color: #DC2626;
+    text-align: center;
+  }
+  
+  .error-message svg {
+    width: 48px;
+    height: 48px;
+  }
+  
+  @keyframes spin {
+    100% { transform: rotate(360deg); }
+  }
+  
+  @media (max-width: 600px) {
+    .booking-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .booking-meta {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }

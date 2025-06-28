@@ -1,0 +1,436 @@
+/* src/pages/ThirdPartyDashboard.css */
+
+/* Global Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  /* Dashboard Container (Outer wrapper) */
+  .tp-dashboard-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    background-color: #f0f2f5; /* Light background to match owner dashboard theme */
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Header */
+  .tp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white; /* White background for header */
+    padding: 15px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+  }
+  
+  .tp-header h1 {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .tp-header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between profile and logout */
+  }
+  
+  .tp-profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #4a90e2; /* Accent color border */
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .tp-profile-icon:hover {
+    transform: scale(1.1);
+  }
+  
+  .tp-logout-button {
+    background-color: #e74c3c; /* Red for logout */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .tp-logout-button:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Main Content Area (similar to .owner-dashboard) */
+  .tp-main-content {
+    flex: 1;
+    padding: 20px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px; /* Constrain content width */
+    box-sizing: border-box;
+  }
+  
+  /* Loading and error states */
+  .tp-loading, .tp-error {
+    text-align: center;
+    padding: 40px;
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .tp-error {
+    color: #e74c3c;
+    background-color: #fcebeb; /* Light red background */
+    border: 1px solid #e74c3c;
+    border-radius: 4px;
+    margin: 10px auto;
+    max-width: 800px;
+  }
+  
+  /* Companies Grid Layout (similar to halls-grid) */
+  .tp-companies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+  
+  /* Company Card Styling (matching hall-card) */
+  .tp-company-card {
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    min-height: 220px; /* Consistent height */
+    cursor: pointer; /* Indicates it's clickable */
+  }
+  
+  .tp-company-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+  
+  .tp-company-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .tp-company-info {
+    padding: 15px;
+    flex: 1; /* Allows info section to grow and push actions to bottom */
+  }
+  
+  .tp-company-info h3 {
+    margin: 0 0 6px 0;
+    font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .tp-company-info p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .tp-company-card-actions {
+    display: flex;
+    justify-content: space-around;
+    margin-top: auto; /* Pushes to bottom if content is short */
+    padding: 0 15px 15px; /* Add padding to match info padding */
+    gap: 10px; /* Space between buttons */
+  }
+  
+  .tp-company-card-actions button {
+      padding: 8px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9em;
+      transition: background-color 0.2s ease;
+      flex: 1; /* Make buttons take equal width */
+  }
+  
+  .tp-company-card-actions .tp-edit-button {
+      background-color: #4a90e2; /* Blue */
+      color: white;
+  }
+  
+  .tp-company-card-actions .tp-edit-button:hover {
+      background-color: #3a7bc8;
+  }
+  
+  .tp-company-card-actions .tp-delete-button {
+      background-color: #e74c3c; /* Red */
+      color: white;
+  }
+  
+  .tp-company-card-actions .tp-delete-button:hover {
+      background-color: #c0392b;
+  }
+  
+  /* Add New Company Card (matching add-card) */
+  .tp-add-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border: 2px dashed #ced4da;
+    transition: background 0.2s;
+    min-height: 210px; /* Slightly less than regular card to indicate difference */
+    cursor: pointer;
+  }
+  
+  .tp-add-card:hover {
+    background: #e9ecef;
+  }
+  
+  .tp-add-icon {
+    font-size: 48px;
+    color: #6c757d;
+    margin-bottom: 10px;
+  }
+  
+  .tp-add-card p {
+    margin: 0;
+    color: #6c757d;
+    font-size: 16px;
+  }
+  
+  /* No Companies Message (matching no-halls) */
+  .tp-no-companies {
+    text-align: center;
+    padding: 40px;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    margin-top: 20px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  .tp-create-first-company-btn {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .tp-create-first-company-btn:hover {
+    background: #3a7bc8;
+  }
+  
+  /* Modal styles */
+  .tp-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .tp-modal-content {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Close button */
+  .tp-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s;
+    color: #666;
+  }
+  
+  .tp-close-button:hover {
+    color: #333;
+    background-color: #f5f5f5;
+  }
+  
+  /* Form styles */
+  .tp-form-group {
+    margin-bottom: 15px;
+  }
+  
+  .tp-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .tp-form-group input,
+  .tp-form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .tp-form-group input:focus,
+  .tp-form-group select:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+  }
+  
+  .tp-form-row {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .tp-form-row .tp-form-group {
+    flex: 1;
+  }
+  
+  .tp-submit-button {
+    background: #4a90e2;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background 0.2s;
+  }
+  
+  .tp-submit-button:hover {
+    background: #3a7bc8;
+  }
+  
+  .tp-submit-button:disabled {
+    background-color: #95a5a6;
+    cursor: not-allowed;
+  }
+  
+  .tp-cancel-button {
+    background: #95a5a6;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+    transition: background 0.2s;
+  }
+  
+  .tp-cancel-button:hover {
+    background: #7f8c8d;
+  }
+  
+  .tp-form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .tp-companies-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+    }
+  
+    .tp-company-image {
+      height: 120px;
+    }
+  
+    .tp-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .tp-companies-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .tp-main-content {
+      padding: 15px;
+    }
+  
+    .tp-form-row {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .tp-form-actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .tp-form-actions button {
+      width: 100%;
+    }
+  }
+
+  .tp-details-image {
+    width: 100%;
+    max-width: 600px; /* Limit image size in modal */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.tp-details-text{
+  margin-left: 10px;
+  line-height: 25px;
+}

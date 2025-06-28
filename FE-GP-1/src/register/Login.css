@@ -1,0 +1,183 @@
+
+  
+  body {
+    background-color: #f9f9f9;
+  }
+  
+  /* Full Background Image */
+  .split-container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../images/start.jpg'); /* Make sure the path is correct */
+   background-size: cover;
+    background-position: center;
+    display: flex;
+  }
+  
+  /* Left Side - Form Overlay */
+  .left-half {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9); /* White semi-transparent overlay */
+    backdrop-filter: blur(3px);
+    z-index: 2;
+    box-sizing: border-box;
+  }
+  
+  /* Login Form Container */
+  .login-form-container {
+    width: 100%;
+    max-width: 450px;
+    min-height: 500px;       /* Minimum height so it won't be too small */
+    height: auto;            /* Allow height to grow with content */
+    padding: 60px 30px;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    text-align: center;
+    box-sizing: border-box;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+ 
+  
+  /* Right Side - Text Over Image */
+  .right-half {
+    flex: 1.2;
+    display: flex;
+    justify-content: center;
+    margin-top:150px;
+    padding: 40px;
+    color: rgb(234, 234, 234);
+    text-align: center;
+    z-index: 2;
+    box-sizing: border-box;
+  }
+  
+  .right-half-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #edebeb;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
+  }
+  
+  .right-half-content h2 {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 2.4em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  }
+  
+  .right-half-content p {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Form Fields */
+  h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 25px;
+  }
+  
+  .error-message {
+    color: red;
+    margin-bottom: 15px;
+    font-size: 14px;
+  }
+  
+  .field {
+    text-align: left;
+    margin-bottom: 25px;
+  }
+  
+  label {
+    display: block;
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 5px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 20px;
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #333;
+  }
+  
+  /* Footer Links */
+  .footer {
+    margin-top: 30px;
+    font-size: 13px;
+  }
+
+ 
+  
+  .footer p {
+    margin-top: 5px;
+    font-size: medium;
+  }
+  
+  .footer a {
+    color: black;
+    text-decoration: underline;
+  }
+
+  .city-select{
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    margin-top: 10px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .split-container {
+      flex-direction: column;
+      overflow-y: auto;
+    }
+  
+    .left-half, .right-half {
+      flex: none;
+      width: 100%;
+      min-height: 50vh;
+      padding: 20px;
+    }
+  
+    .right-half-content h2 {
+      font-size: 2em;
+    }
+  
+    .right-half-content p {
+      font-size: 1.2em;
+    }
+  }
+  
